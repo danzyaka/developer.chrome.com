@@ -66,9 +66,9 @@ export default {
     app: './src/index.js'
   },
   output: {
-    filename: ({runtime}) => {
+    filename: ({chunk: { name }) => {
       // Check if the current filename is for the service worker:
-      if (runtime === 'sw') {
+      if (name === 'sw') {
         // Output a service worker in the root of the dist directory
         // Also, ensure the output file name doesn't have a hash in it
         return '[name].js';
